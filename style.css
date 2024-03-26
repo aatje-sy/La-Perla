@@ -1,0 +1,264 @@
+body html {
+    margin: 0;
+    padding: 0;
+}
+.flex {
+    display: flex;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.logo {
+    font-size: 15px;
+    margin-left: 20px;
+    font-family: "Cormorant Garamond";
+    font-weight: 600;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family: "Cormorant Garamond";
+    font-weight: 500;
+}
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+.logIn {
+    margin-right: 20px;
+}
+.login-button {
+    height: 35px;
+    width: 100px;
+    font-size: 18px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-family: "Cormorant Garamond";
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+}
+.login-button:hover{
+    background-color: #ddd;
+}
+.landing-container {
+    z-index: 5;
+    height: 400px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pasta-img {
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    width: 550px;
+}
+.landing-text {
+    font-size: 45px;
+    width: 250px;
+    text-align: center;
+    font-weight: lighter;
+}
+.menu-landing-container {
+    height: 800px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu-button {
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    height: 100px;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+}
+.footer-buttons {
+  justify-content: center;  
+  gap: 40px;
+}
+.line-design {
+    justify-content: center;
+    width: 100%;
+}
+.circle-cont {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+}
+.circle {
+    border: 1.5px solid black;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+.title {
+    font-weight: lighter;
+    font-size: 40px;
+    text-align: center;
+}
+.whole-menu-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+.btns-container {
+    justify-content: center;
+    gap: 20px;
+}
+.the-menu-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+}
+.filterDiv {
+    width: 50%;
+    height: 120px;
+    border: 1px solid black;
+    display: none;
+    text-align: center;
+    font-family: "Cormorant Garamond";
+}
+.show {
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.btn {
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    outline: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: "Cormorant Garamond";
+    font-weight: 500;
+}
+.btn:hover {
+    background-color: #ddd;
+}
+.login-container {
+    height: 500px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cormorant Garamond";
+    gap: 10px;
+}
+.login-input {
+    height: 50px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.login-btn {
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.login-btn:hover {
+    background-color: #ddd;
+}
+.admin-container {
+    height: 500px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.admin-btn {
+    height: 50px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+.admin-btn:hover{
+    background-color: #ddd;
+}
+.admin-dish-container {
+    height: 500px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-container{
+    gap: 10px;
+}
+.admin-btn{
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+.add-dish-input {
+    height: 50px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.admin-edit-container{
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    justify-content: center;
+}
+.edit-cont {
+    height: 550px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.dish-input-dubble {
+    gap: 10px;
+}
+.dish-input-small {
+    height: 50px;
+    width: 190px;
+}
+.edit-dish-input {
+    height: 50px;
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.discription-input {
+    height: 200px;
+}
+
