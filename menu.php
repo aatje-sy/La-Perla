@@ -1,15 +1,3 @@
-
-
-<?php
-    require_once ("PDO.php");
-
-    $stm = $pdo->query('SELECT name , discription , price    FROM La_Perla_Menu');
-    while ($row = $stm-> fetch()){
-        echo $row ['name'];
-        echo $row ['discription'];
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,149 +27,48 @@
     </header>
     <div class="line-design flex">________________________________________________________________________________________________</div>
 
+    <div class="container ">
     <h1 class="title">La Perla Menu</h1>
 
     <div class="whole-menu-container flex">
-            <div id="myBtnContainer" class="btns-container flex">
-                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                <button class="btn" onclick="filterSelection('pasta')">Pasta</button>
-                <button class="btn" onclick="filterSelection('pizza')">Pizza</button>
-                <button class="btn" onclick="filterSelection('drinks')">Drinks</button>
-                <button class="btn" onclick="filterSelection('dessert')">Dessert</button>
-
-              </div>
         <div class="the-menu-container flex">
-            <div class="filterDiv pasta">
-                <div>
-                    <p>Spaghetti Carbonara</p>
-                    <p>discriptionnn</p>
-                </div>
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv pasta">
-                <div>
-                    <p>Ravioli al Burro e Salvia</p>
-                    <p>discriptionnn</p>
-                </div>
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv pasta">
-                <div>
-                    <p>Linguine alle Vongole</p>
-                    <p>discriptionnn</p>
-                </div>
+            <form method="get">
+                <input class="searchBar" type="text" name="search" placeholder="Search">
+            </form>
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv pizza">
-                <div>
-                    <p>Margherita Pizza</p>
-                    <p>discriptionnn</p>
-                </div>
+        <?php
+        require_once("PDO.php");
+        /**
+         * @var $connection;
+         */
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv pizza">
-                <div>
-                    <p>Quattro Stagioni</p>
-                    <p>discriptionnn</p>
-                </div>
+        if (isset($_GET['search'])){
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv pizza">
-                <div>
-                    <p>Neapolitan Pizza</p>
-                    <p>discriptionnn</p>
-                </div>
+            $zoekQuery = "SELECT * FROM La_Perla_Menu WHERE name LIKE :zoekinput";
+            $stmt = $connection ->prepare($zoekQuery);
+            $var = "%" . $_GET['search'] . "%";
+            $stmt -> bindParam( ":zoekinput" , $var);
+            $stmt->execute();
+        }else {
+            $stmt = $connection->query("SELECT * FROM La_Perla_Menu");
+        }
+        //-------------------------------------------->
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv drinks">
-                <div>
-                    <p>Limonata</p>
-                    <p>discriptionnn</p>
-                </div>
+        while($menu = $stmt ->fetch()){
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv drinks">
-                <div>
-                    <p>Aranciata</p>
-                    <p>discriptionnn</p>
-                </div>
+            echo "<div class='dishInfoCont flex'>" .
+                    "<div class='dishInfo flex'>".
+                        "<div class='left-side flex'>" .
+                            "<div class='dishTitle'>".$menu["name"]."</div>".
+                            "<div class='dishDisc'>".$menu["discription"]."</div>".
+                        "</div>" .
+                        "<div class='right-side flex'>".$menu["price"]." "."<div class='order-btn'>Order</div>" ."</div>".
+                    "</div>" .
+                "</div>";
 
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv drinks">
-                <div>
-                    <p>Acqua di Menta</p>
-                    <p>discriptionnn</p>
-                </div>
-
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv dessert">
-                <div>
-                    <p>Tiramisu</p>
-                    <p>discriptionnn</p>
-                </div>
-
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv dessert">
-                <div>
-                    <p>Cannoli</p>
-                    <p>discriptionnn</p>
-                </div>
-
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
-            <div class="filterDiv dessert">
-                <div>
-                    <p>Panna Cotta</p>
-                    <p>discriptionnn</p>
-                </div>
-
-                <div>
-                    <p>€9,99</p>
-                    <button class="btn">Order</button>
-                </div>
-            </div>
+        }
+?>
         </div>
     </div>
 
@@ -202,7 +89,5 @@
             <div class="circle"></div>
         </div>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,16 +1,11 @@
 <?php
-    ob_start();
-    require_once ("PDO.php");
+    include_once("PDO.php");
 
-    if (isset($_POST['loggingIn'])){
-        if ($_POST['username'] == "LaPerla" && $_POST['password'] == "Elegantu")
-            header('Location: admin.php');
-        else {
-            echo "Login was not succeed";
-        }
+    session_start();
+
+    if (isset($_SESSION["username"])) {
+        header("Location: editDish.php");
     }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +17,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form name="login" action="login.php" method="post" class="login-container flex">
+    <form name="login" action="login-logic.php" method="post" class="login-container flex">
         <h1 class="title">Login to La Perla</h1>
         <input name="username" class="login-input" type="text" placeholder="Username">
         <input name="password" class="login-input" type="password" placeholder="Password">
-        <button name="loggingIn" type="submit" class="login-btn">Login</button>
+        <div class="flex" style="gap: 10px">
+            <a class="login-btn flex" href="index.html">Back</a>
+            <button name="loggingIn" type="submit" class="login-btn">Login</button>
+        </div>
     </form>
 </body>
 </html>

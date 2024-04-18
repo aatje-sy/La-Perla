@@ -1,6 +1,3 @@
-<?php
-    require_once ("PDO.php");
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,24 +20,24 @@
             <a href="">Book</a>
         </ul>
         <div class="logIn">
-            <a href="login.php" class="login-button flex">Login</a>
+            <a href="uitloggen.php" class="login-button flex">LogOut</a>
         </div>
     </header>
 
     <div class="line-design flex">________________________________________________________________________________________________</div>
 
-    <div class="admin-dish-container flex">
+    <form method="post" action="Add-Logic.php" class="admin-dish-container flex">
         <h1 class="title">Add dish to La Perla</h1>
-        <input class="add-dish-input" type="text" name="dishNameInput" id="" placeholder="Dish Name">
-        <input class="add-dish-input" type="text" name="dishDiscription" id="" placeholder="Dish Discription">
-        <input class="add-dish-input" type="text" name="dishPrice" id="" placeholder="Dish Price">
+        <input class="add-dish-input" type="text" name="dishNameInput" id="" placeholder="Dish Name*">
+        <input class="add-dish-input" type="text" name="dishDiscription" id="" placeholder="Dish Discription*">
+        <input class="add-dish-input" type="text" name="dishPrice" id="" placeholder="Dish Price*">
         <input class="add-dish-input" type="text" name="dishCategory" id="" placeholder="Dish Category">
         <div class="btn-container flex">
-                <a class="admin-btn flex" href="admin.php">Back</a>
-            <a href="#" class="admin-btn flex">Add Dish</a>
+            <a class="admin-btn flex" href="editDish.php">Back</a>
+            <input type="submit" class="admin-btn" name="Add-Dish" value="Add Dish">
         </div>
 
-    </div>
+    </form>
 
 </body>
 </html>
